@@ -121,19 +121,40 @@ const TodoApp: React.FC = () => {
         </button>
       </div>
       <ul>
-        {todos.map(todo => (
-          <li key={todo._id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleComplete(todo._id)}
-            />
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-              {todo.name}
-            </span>
-            <button onClick={() => handleDeleteTodo(todo._id)}>Delete</button>
-          </li>
-        ))}
+      {todos.map(todo => (
+  <li key={todo._id} style={{ listStyle: 'none' }}>
+    <input
+      type="checkbox"
+      checked={todo.completed}
+      onChange={() => handleToggleComplete(todo._id)}
+    />
+    <span
+      style={{
+        textDecoration: todo.completed ? 'line-through' : 'none',
+        fontFamily: 'Comic Sans MS',
+        fontWeight:'bold',
+        fontSize: '16px'
+      }}
+    >
+      {todo.name}
+    </span>
+    <button
+      onClick={() => handleDeleteTodo(todo._id)}
+      style={{
+        backgroundColor: 'red',
+        color: 'white',
+        fontSize: '12px',
+        borderRadius: '5px',
+        padding: '5px 5px',
+        marginLeft: '10px',
+        marginTop: '10px'
+      }}
+    >
+      Delete
+    </button>
+  </li>
+))}
+
       </ul>
     </div>
   );
